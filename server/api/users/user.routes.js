@@ -1,9 +1,7 @@
 const { Router } = require('express');
 const UserController = require('./user.controller');
 
-export class UserRoutes {
-    public router;
-
+class UserRoutes {
     constructor() {
         this.router = Router();
         this.router.get('/', UserController.getAll);
@@ -11,4 +9,4 @@ export class UserRoutes {
     }
 }
 
-export default (new UserRoutes()).router;
+module.exports = (new UserRoutes()).router;

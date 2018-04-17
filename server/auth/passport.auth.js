@@ -1,10 +1,10 @@
 const passport = require('passport');
-const { JWTStrategyInstance } = require('./passport-jwt.strategy');
+const JWTStrategyInstance = require('./passport-jwt.strategy');
 
-export default class PassportAuth {
+class PassportAuth {
     constructor() {
         passport.use(JWTStrategyInstance);
     }
 }
 
-export { PassportAuth };
+module.exports = PassportAuth;

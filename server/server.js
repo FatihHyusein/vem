@@ -1,25 +1,13 @@
 const http = require('http');
 const Express = require('./config/express.config');
 
-const port = normalizePort(process.env.PORT || 9000);
+const port = +process.env.PORT || 9000;
 Express.set('port', port);
 
 const server = http.createServer(Express);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-
-function normalizePort(val) {
-    let port = (typeof val === 'string') ? parseInt(val, 10) : val;
-    if (isNaN(port)) {
-        return val;
-    }
-    else if (port >= 0) {
-        return port;
-    }
-
-    return false;
-}
 
 function onError(error) {
     if (error.syscall !== 'listen') {

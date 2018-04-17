@@ -1,7 +1,7 @@
 const Model = require('./user.model');
 
-export default class UserController {
-    public static async getAll(req, res, next) {
+class UserController {
+    static async getAll(req, res, next) {
         try {
             let result = await Model.find().exec();
 
@@ -16,7 +16,7 @@ export default class UserController {
         }
     }
 
-    public static async create(req, res, next) {
+    static async create(req, res, next) {
         let model = new Model({
             title: 'Test title',
             subtitle: 'test subtitle'
@@ -31,3 +31,31 @@ export default class UserController {
         next();
     }
 }
+
+module.exports = UserController;
+
+var main = {
+    expenseCategories: [
+        {
+            id: 3, name: 'Gas', subCategories: [{ id: 4, name: 'Personal' }]
+        }
+    ],
+    organisation: {
+        name: '',
+        pass: 1234,
+        users: [
+            { name: '', pass: 1234, roles: [1, 2, 3] }
+        ],
+        roles: [
+            { name: '', permissions: [1, 2, 3, 4, 5] },
+            { name: '', permissions: [1] }
+        ],
+        vehicles: [
+            {
+                name: '', expenses: [
+                    { date: '', category: "3|4", amount: 0, notes: '' }
+                ]
+            }
+        ]
+    }
+};

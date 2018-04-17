@@ -2,8 +2,6 @@ const jwt = require('passport-jwt');
 const UserModel = require('../api/users/user.model');
 
 class JWTStrategy {
-    jwtStrategyInstance;
-
     constructor() {
         const jwtOptions = {
             jwtFromRequest: jwt.ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -26,4 +24,4 @@ class JWTStrategy {
     }
 }
 
-export const JWTStrategyInstance = new JWTStrategy().jwtStrategyInstance;
+module.exports = new JWTStrategy().jwtStrategyInstance;
