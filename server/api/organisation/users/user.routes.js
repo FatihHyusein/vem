@@ -3,7 +3,7 @@ const UserController = require('./user.controller');
 
 class UserRoutes {
     constructor() {
-        this.router = Router();
+        this.router = Router({mergeParams: true});
         this.router.get('/', UserController.getAll);
         this.router.post('/', UserController.create);
     }

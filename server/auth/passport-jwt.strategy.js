@@ -1,5 +1,5 @@
 const jwt = require('passport-jwt');
-const UserModel = require('../api/users/user.model');
+const UserModel = require('../api/organisation/users/user.model');
 
 class JWTStrategy {
     constructor() {

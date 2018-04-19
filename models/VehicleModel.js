@@ -18,3 +18,9 @@ class VehicleModel {
         return instance;
     }
 }
+
+VehicleModel.dbSchema = {
+
+};
+
+module.exports = VehicleModel;

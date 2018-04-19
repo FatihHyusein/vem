@@ -29,9 +29,9 @@ OrganizationModel.dbSchema = {
     id: String,
     name: String,
     pass: String,
-    users: Array,
-    definedRoles: Array,
-    vehicles: Array,
+    users: [UserModel.dbSchema],
+    definedRoles: [RoleModel.dbSchema],
+    vehicles: [VehicleModel.dbSchema],
 };
 OrganizationModel.methods = {};
 

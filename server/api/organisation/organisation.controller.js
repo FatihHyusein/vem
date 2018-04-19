@@ -6,7 +6,6 @@ class OrganisationController {
             let result = await Model.find().exec();
 
             res.locals.data = {
-                message: 'it works! We got all examples',
                 result: result
             };
 
@@ -22,6 +21,7 @@ class OrganisationController {
             name: "Test",
             pass: "test",
             users: [{
+                id: "1",
                 name: 'user',
                 pass: 'asd',
                 assignedRoleIds: [1, 2]

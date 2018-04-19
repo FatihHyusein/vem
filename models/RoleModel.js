@@ -14,3 +14,9 @@ class RoleModel {
         return instance;
     }
 }
+
+RoleModel.dbSchema = {
+
+};
+
+module.exports = RoleModel;

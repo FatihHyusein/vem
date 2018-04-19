@@ -6,7 +6,6 @@ class UserController {
             let result = await Model.find().exec();
 
             res.locals.data = {
-                message: 'it works! We got all examples',
                 result: result
             };
 
