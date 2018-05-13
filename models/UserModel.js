@@ -7,7 +7,7 @@ class UserModel {
     }
 
     static fromJson(json) {
-        const instance = new OrganizationModel();
+        const instance = new UserModel();
 
         instance.id = json.id;
         instance.name = json.name;
@@ -20,7 +20,7 @@ class UserModel {
 
 UserModel.dbSchema = {
     name: String,
-    pass: String,
+    pass: {type: String, select: false},
     assignedRoleIds: Array,
 };
 UserModel.methods = {};

@@ -12,7 +12,6 @@ class Express {
         Express.connectToMongo();
         this.app = express();
 
-        new PassportAuth();
         this.setMiddleware();
     }
 

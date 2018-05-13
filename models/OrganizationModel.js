@@ -26,12 +26,7 @@ class OrganizationModel {
 }
 
 OrganizationModel.dbSchema = {
-    id: String,
-    name: String,
-    pass: String,
-    users: [UserModel.dbSchema],
-    definedRoles: [RoleModel.dbSchema],
-    vehicles: [VehicleModel.dbSchema],
+
 };
 OrganizationModel.methods = {};
 
