@@ -14,9 +14,9 @@ router.get('/:organisationId', OrganisationsController.getById);
 router.put('/:organisationId', OrganisationsController.updateById);
 router.delete('/:organisationId', OrganisationsController.deleteById);
 router.use('/:organisationId/permissions', getOrganisationById, PermissionsRoutes);
-router.use('/:organisationId/roles', RolesRoutes);
-router.use('/:organisationId/users', UsersRoutes);
-router.use('/:organisationId/vehicles', VehiclesRoutes);
+router.use('/:organisationId/roles', getOrganisationById, RolesRoutes);
+router.use('/:organisationId/users', getOrganisationById, UsersRoutes);
+router.use('/:organisationId/vehicles', getOrganisationById, VehiclesRoutes);
 
 async function getOrganisationById(req, res, next) {
     req.organisation = await OrganisationModel.findById(req.params.organisationId).exec();
