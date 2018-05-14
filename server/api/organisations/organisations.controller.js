@@ -21,7 +21,7 @@ class OrganisationsController {
             let result = await Model.find().exec();
 
             res.locals.data = {
-                result: result
+                organisations: result
             };
 
             next();
@@ -46,7 +46,7 @@ class OrganisationsController {
 
     static async updateById(req, res, next) {
         try {
-            let result = await Model.findByIdAndUpdate(req.params.organisationId, req.body.organisation, {new: true}).exec();
+            let result = await Model.findByIdAndUpdate(req.params.organisationId, req.body.organisation, { new: true }).exec();
 
             res.locals.data = {
                 result: result

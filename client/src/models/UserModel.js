@@ -1,4 +1,4 @@
-class UserModel {
+export class UserModel {
     constructor() {
         this.id = '';
         this.name = '';
@@ -17,12 +17,3 @@ class UserModel {
         return instance;
     }
 }
-
-UserModel.dbSchema = {
-    name: String,
-    pass: {type: String, select: false},
-    assignedRoleIds: Array,
-};
-UserModel.methods = {};
-
-module.exports = UserModel;

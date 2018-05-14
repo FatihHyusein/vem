@@ -1,4 +1,4 @@
-class VehicleModel {
+export class VehicleModel {
     constructor() {
         this.id = '';
         this.make = '';
@@ -8,7 +8,7 @@ class VehicleModel {
     }
 
     static fromJson(json) {
-        const instance = new OrganizationModel();
+        const instance = new VehicleModel();
 
         instance.id = json.id;
         instance.make = json.make;
@@ -18,9 +18,3 @@ class VehicleModel {
         return instance;
     }
 }
-
-VehicleModel.dbSchema = {
-
-};
-
-module.exports = VehicleModel;

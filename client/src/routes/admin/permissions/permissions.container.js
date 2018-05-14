@@ -1,15 +1,15 @@
-import {PermissionsComponent} from "./permissions.component";
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import {push} from 'react-router-redux';
+import { PermissionsComponent } from "./permissions.component";
+import { connect } from 'react-redux';
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    permissions: (() => {
+        const myOrganisation = state.organisations && state.organisations.find(o => o.id === state.profile.organisationId);
+        return (myOrganisation && myOrganisation.permissions) || []
+    })()
+});
 
-const mapDispatchToProps = dispatch =>
-    bindActionCreators(
-        {
-        },
-        dispatch
-    );
-
+const mapDispatchToProps = {
+    onSave: () => {
+    }
+};
 export default connect(mapStateToProps, mapDispatchToProps)(PermissionsComponent);

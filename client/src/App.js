@@ -1,11 +1,12 @@
 import React from 'react';
-import {Link, Route} from 'react-router-dom';
-import {Breadcrumb, Icon, Layout, Menu} from 'antd';
+import { Link, Route } from 'react-router-dom';
+import { Breadcrumb, Icon, Layout, Menu } from 'antd';
 import AdminRoute from './routes/admin/admin.container';
 import 'antd/dist/antd.css';
-
-const {SubMenu} = Menu;
-const {Header, Content, Sider} = Layout;
+import PropTypes from "prop-types";
+import { connect } from 'react-redux';
+import { getOrganisationsAsync } from "./core/+store/organisations.reducer";
+const { Header, Content } = Layout;
 
 
 class App extends React.Component {
@@ -14,11 +15,14 @@ class App extends React.Component {
     };
 
     handleClick = (e) => {
-        console.log(e);
         this.setState({
             current: e.key,
         });
     };
+
+    componentWillMount() {
+        this.props.getOrganisationsAsync();
+    }
 
     render() {
         return (
@@ -61,13 +65,13 @@ class App extends React.Component {
                     </Menu>
                 </Header>
                 <Layout>
-                    <Layout style={{padding: '0 24px 24px'}}>
-                        <Breadcrumb style={{margin: '16px 0'}}>
+                    <Layout style={{ padding: '0 24px 24px' }}>
+                        <Breadcrumb style={{ margin: '16px 0' }}>
                             <Breadcrumb.Item>Home</Breadcrumb.Item>
                             <Breadcrumb.Item>List</Breadcrumb.Item>
                             <Breadcrumb.Item>App</Breadcrumb.Item>
                         </Breadcrumb>
-                        <Content style={{background: '#fff', padding: 24, margin: 0, minHeight: 280}}>
+                        <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
                             <Route path="/admin" component={AdminRoute}/>
                         </Content>
                     </Layout>
@@ -77,4 +81,19 @@ class App extends React.Component {
     }
 }
 
-export default App;
+App.propTypes = {
+    organisations: PropTypes.array.isRequired,
+    getOrganisationsAsync: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => ({
+    organisations: state.organisations,
+});
+
+const mapDispatchToProps = {
+    getOrganisationsAsync
+};
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+
+

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const UserModel = require('../../../../models/UserModel');
+const UserModel = require('../../../../client/src/models/UserModel');
 
 let schema = new mongoose.Schema({
     name: String,

@@ -1,4 +1,4 @@
-class RoleModel {
+export class RoleModel {
     constructor() {
         this.id = '';
         this.name = '';
@@ -6,7 +6,7 @@ class RoleModel {
     }
 
     static fromJson(json) {
-        const instance = new OrganizationModel();
+        const instance = new RoleModel();
 
         instance.id = json.id;
         instance.name = json.name;
@@ -14,9 +14,3 @@ class RoleModel {
         return instance;
     }
 }
-
-RoleModel.dbSchema = {
-
-};
-
-module.exports = RoleModel;

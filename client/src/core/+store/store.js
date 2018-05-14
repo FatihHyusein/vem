@@ -1,8 +1,9 @@
-import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
-import {routerMiddleware, routerReducer} from 'react-router-redux';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
+import { routerMiddleware, routerReducer } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import createHistory from 'history/createBrowserHistory';
 import organisationsReducer from './organisations.reducer';
+import profileReducer from './profile.reducer';
 
 export const history = createHistory();
 
@@ -23,4 +24,5 @@ const composedEnhancers = compose(applyMiddleware(...middleware), ...enhancers);
 export default createStore(combineReducers({
     router: routerReducer,
     organisations: organisationsReducer,
+    profile: profileReducer,
 }), initialState, composedEnhancers);
